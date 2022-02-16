@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF8" />
+    <title>Práctica 1</title>
+    <style>
+      label {
+        display: inline-block;
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Plataforma de autoevaluación SSAATT</header>
+    <nav>
+      <a href="">Inicio</a>
+      <a href="">Registro</a>
+      <a href="https://www.ujaen.es/">Acerca de</a>
+    </nav>
+
+    <main>
+      <section>
+        <h2>Registro de Usuario</h2>
+
+        <div>
+          <form
+            action="http://labtelema.ujaen.es/form.php"
+            method="POST"
+            name="register"
+          >
+            <label for="nick">Apodo:</label>
+            <input
+              type="text"
+              name="nick"
+              id="nick"
+              maxlength="16"
+              required
+            /><br />
+            <label for="email">Correo electrónico:</label>
+            <input type="email" name="email" id="email" required /><br />
+            <label for="name">Nombre de usuario:</label>
+            <input type="text" name="name" id="name" maxlength="32" required /><br />
+            <label for="surname">Apellidos del usuario:</label>
+            <input type="text" name="surname" id="surname" maxlength="32" /><br />
+            <label for="password">Clave del usuario:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              maxlength="16"
+              required
+            /><br />
+            <label for="password-check">Comprobación de la clave del usuario:</label>
+            <input
+                type="password"
+                name="password-check"
+                id="password-check"
+                maxlength="16"
+                required /></label
+            ><br />
+            <input type="submit" value="Enviar" />
+          </form>
+        </div>
+      </section>
+      <aside>
+        <img src="./uja.png" alt="Logotipo UJA" width="150" />
+        <p>
+          Esto es un párrafo descriptivo de la práctica, rellenar con más texto.
+        </p>
+        <a href="https://platea.ujaen.es/">PLATEA</a>
+      </aside>
+    </main>
+
+    <footer>
+      <b>Autor:</b> Juan Luis Herreros Bódalo <br />
+      <b>Titulación:</b> Ingeniería de las tecnologías de la telecomunicación
+      <br />
+      <b>Curso:</b> 2º <br />
+    </footer>
+  </body>
+</html>
