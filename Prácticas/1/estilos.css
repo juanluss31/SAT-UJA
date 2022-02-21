@@ -1,0 +1,67 @@
+header {
+  background-color: black;
+  color: white;
+}
+header{
+    font-size:xx-large;
+}
+body {
+  background: rgb(255, 255, 255);
+}
+nav{
+    background-color: greenyellow;
+}
+section{
+    background-color: bisque;
+}
+nav li {
+    display:inline-flex;
+    width:10%;
+}
+a.menu{
+    display: inline-block;
+}
+section li {
+  display: flex;
+}
+input[type="text"] {
+  color: rgb(96, 158, 78);
+  padding: 5;
+}
+:invalid input {
+  background-color: rgb(255, 187, 0);
+}
+label {
+  display: inline-block;
+  width: 200px;
+}
+main {
+  overflow: auto;
+}
+main section {
+  float: left;
+  min-width: 60%;
+  padding: 1%;
+}
+main aside {
+  background-color: aqua;
+  float: right;
+  max-width: 30%;
+  padding: 3%;
+}
+footer {
+  width: auto;
+  background-color: rgb(169, 228, 228);
+}
+footer p {
+  font-size: 0.9em;
+}
+img.logo {
+  width: 150px;
+  border: 2px solid black;
+  box-shadow: 5px 5px 5px darkgray;
+  background-color: azure;
+}
+footer p {
+  text-align: center;
+}
