@@ -6,17 +6,18 @@
     <title>Práctica 1</title>
   </head>
   <body>
-    <header>Plataforma de autoevaluación SSAATT</header>
+    <header class="titulo"><p>
+      Plataforma de autoevaluación SSAATT</p></header>
     <nav>
       <ul>
-        <li><a class="menu" href="">Inicio</a></li>
-        <li><a class="menu" href="">Registro</a></li>
-        <li><a class="menu" href="https://www.ujaen.es/">Acerca de</a></li>
+        <li class="boton"><a class="menu" href="">Inicio</a></li>
+        <li class="boton"><a class="menu" href="#registro">Registro</a></li>
+        <li class="boton"><a class="menu" href="https://www.ujaen.es/">Acerca de</a></li>
       </ul>
     </nav>
 
     <main>
-      <section>
+      <section id="registro">
         <h2>Registro de Usuario</h2>
 
         <div>
@@ -27,7 +28,7 @@
           >
             <ul>
               <li>
-                <label for="nick">Apodo:</label>
+                <label for="nick"><b>Apodo:</b></label>
                 <input
                   type="text"
                   name="nick"
@@ -37,11 +38,11 @@
                 />
               </li>
               <li>
-                <label for="email">Correo electrónico:</label>
+                <label for="email"><b>Correo electrónico:</b></label>
                 <input type="email" name="email" id="email" required />
               </li>
               <li>
-                <label for="name">Nombre de usuario:</label>
+                <label for="name"><b>Nombre de usuario:</b></label>
                 <input
                   type="text"
                   name="name"
@@ -51,11 +52,11 @@
                 />
               </li>
               <li>
-                <label for="surname">Apellidos del usuario:</label>
+                <label for="surname"><b>Apellidos del usuario:</b></label>
                 <input type="text" name="surname" id="surname" maxlength="32" />
               </li>
               <li>
-                <label for="password">Clave del usuario:</label>
+                <label for="password"><b>Clave del usuario:</b></label>
                 <input
                   type="password"
                   name="password"
@@ -66,7 +67,7 @@
               </li>
               <li>
                 <label for="password-check"
-                  >Comprobación de la clave del usuario:</label
+                  ><b>Comprobación de la clave del usuario:</b></label
                 >
                 <input
                   type="password"
@@ -76,7 +77,7 @@
                   required
                 />
               </li>
-              <li><input type="submit" value="Enviar" /></li>
+              <li><input class="boton" type="submit" value="Enviar" /></li>
             </ul>
           </form>
         </div>
