@@ -11,7 +11,7 @@ header {
 body {
   /*Fondo de la página*/
   background-image: linear-gradient(to right, #2799b1, #d5e76c);
-  margin-inline: 3.5%;
+  margin-inline: 2%;
 }
 
 /*Barra de navegación*/
@@ -90,7 +90,7 @@ label {
   width: 35%;
   padding-left: 5%;
 }
-main section {
+main section {  
   float: left;
   min-width: 60%;
   background-image: linear-gradient(
