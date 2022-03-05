@@ -3,16 +3,18 @@
   <head>
     <meta charset="UTF8" />
     <link rel="stylesheet" href="estilos.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
     <title>Práctica 1</title>
   </head>
   <body>
-    <header class="titulo"><p>
-      Plataforma de autoevaluación SSAATT</p></header>
+    <header class="titulo"><p>Plataforma de autoevaluación SSAATT</p></header>
     <nav>
       <ul>
         <li class="boton"><a class="menu" href="">Inicio</a></li>
         <li class="boton"><a class="menu" href="#registro">Registro</a></li>
-        <li class="boton"><a class="menu" href="https://www.ujaen.es/">Acerca de</a></li>
+        <li class="boton">
+          <a class="menu" href="https://www.ujaen.es/">Acerca de</a>
+        </li>
       </ul>
     </nav>
 
@@ -28,7 +30,6 @@
           >
             <ul>
               <li>
-                <label for="nick"><b>Apodo:</b></label>
                 <input
                   type="text"
                   name="nick"
@@ -36,13 +37,13 @@
                   maxlength="16"
                   required
                 />
+                <label for="nick"><b>Apodo:</b></label>
               </li>
               <li>
-                <label for="email"><b>Correo electrónico:</b></label>
                 <input type="email" name="email" id="email" required />
+                <label for="email"><b>Correo electrónico:</b></label>
               </li>
               <li>
-                <label for="name"><b>Nombre de usuario:</b></label>
                 <input
                   type="text"
                   name="name"
@@ -50,13 +51,13 @@
                   maxlength="32"
                   required
                 />
+                <label for="name"><b>Nombre de usuario:</b></label>
               </li>
               <li>
-                <label for="surname"><b>Apellidos del usuario:</b></label>
                 <input type="text" name="surname" id="surname" maxlength="32" />
+                <label for="surname"><b>Apellidos del usuario:</b></label>
               </li>
               <li>
-                <label for="password"><b>Clave del usuario:</b></label>
                 <input
                   type="password"
                   name="password"
@@ -64,11 +65,9 @@
                   maxlength="16"
                   required
                 />
+                <label for="password"><b>Clave del usuario:</b></label>
               </li>
               <li>
-                <label for="password-check"
-                  ><b>Comprobación de la clave del usuario:</b></label
-                >
                 <input
                   type="password"
                   name="password-check"
@@ -76,6 +75,9 @@
                   maxlength="16"
                   required
                 />
+                <label for="password-check"
+                  ><b>Comprobación de la clave del usuario:</b></label
+                >
               </li>
               <li><input class="boton" type="submit" value="Enviar" /></li>
             </ul>
@@ -86,7 +88,8 @@
       <aside>
         <img class="logo" src="./uja.png" alt="Logotipo UJA" width="150" />
         <p>
-          Esto es un párrafo descriptivo de la práctica, rellenar con más texto.
+          Esta práctica nos ha servido para aprender a diseñar una página web
+          gracias a HTML5 y las hojas de estilos CSS.
         </p>
         <a href="https://platea.ujaen.es/">PLATEA</a>
       </aside>
@@ -94,11 +97,12 @@
 
     <footer>
       <p>
-        <b>Autor:</b> <i>Juan Luis Herreros Bódalo </i><br />
+        <b>Autores:</b>
+        <i>Juan Luis Herreros Bódalo y Manuel Ballesteros Bosques </i><br />
         <b>Titulación:</b>
         <i>Ingeniería de las tecnologías de la telecomunicación</i>
         <br />
-        <b>Curso:</b> <i>2º</i> <br />
+        <b>Curso:</b> <i>2º &#40;2021/2022&#41;</i> <b>Grupo:</b> <i>A</i>
       </p>
     </footer>
   </body>
