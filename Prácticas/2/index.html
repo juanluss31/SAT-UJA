@@ -16,13 +16,13 @@
     <header class="titulo"><p>Plataforma de autoevaluación SSAATT</p></header>
     <nav>
       <ul>
-        <li class="boton" id="menu-1">
+        <li class="boton activo" id="menu-1">
           <a class="menu"  href="#" onclick="show('1')">Inicio</a>
         </li>
         <li class="boton" id="menu-2">
           <a class="menu"  href="#" onclick="show('2')">Registro</a>
         </li>
-        <li class="boton; oculto" id="menu-3">
+        <li class="boton" id="menu-3">
           <a class="menu" href="#" onclick="show('3')"
             >Nuevo examen</a
           >
@@ -42,7 +42,7 @@
       <section id="section-1">
         <h2>Acceso</h2>
         <form
-          action="http://labtelema.ujaen.es/form.php"
+          action="http://labtelema.ujaen.es:8083/login"
           method="POST"
           name="login"
         >
@@ -141,7 +141,41 @@
       </section>
       <section id="section-3" class="oculto">
         <h2>Nuevo examen</h2>
-        <form action="#"></form>
+        <div>
+          <form
+            action="#"
+            method="PUT"
+            name="register"
+          >
+            <ul>
+              <li>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  required
+                />
+                <label for="title"><b>Título:</b></label>
+              </li>
+              <li>
+                <input type="date" name="date" id="date" required />
+                <label for="date"><b>Fecha:</b></label>
+              </li>
+              <li>
+                
+                <select name="repository">
+                    <option value="1" label="Opcion 1"> </option>              
+                </select>
+                <label for="repository"><b>Repositorio:</b></label>
+                
+              </li>
+              
+              
+              <li>
+                <button class="boton" type="submit">Enviar</button></button></li>
+            </ul>
+          </form>
+        </div>
       </section>
       <section id="section-4" class="oculto">
         <h2>Acerca de la página</h2>
