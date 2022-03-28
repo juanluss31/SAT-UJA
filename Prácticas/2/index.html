@@ -1,8 +1,21 @@
+<!--
+
+PRÁCTICA 2: APLICACIÓN WEB CLIENTE BÁSICA
+
+SERVICIOS Y APLICACIONES TELEMÁTICAS 
+INGENIERÍA DE LAS TECNOLOGÍAS DE LA TELECOMUNICACIÓN
+
+CURSO 2021/22
+
+JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
+
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="estilos.css" />
     <link
       rel="shortcut icon"
@@ -13,39 +26,32 @@
     <title>Práctica 1</title>
   </head>
   <body>
-    <header class="titulo"><p>Plataforma de autoevaluación SSAATT</p></header>
+    <header class="titulo" onclick="menuLogeado('usuario')"><p>Plataforma de autoevaluación SSAATT</p></header>
     <nav>
       <ul>
-        <li class="boton activo" id="menu-1">
-          <a class="menu"  href="#" onclick="show('1')">Inicio</a>
-        </li>
+        <a class="menu" href="#" onclick="show('1')"><li class="boton activo" id="menu-1">
+           Inicio
+        </li></a>
         <li class="boton" id="menu-2">
-          <a class="menu"  href="#" onclick="show('2')">Registro</a>
+          <a class="menu" href="#" onclick="show('2')">Registro</a>
         </li>
-        <li class="boton" id="menu-3">
-          <a class="menu" href="#" onclick="show('3')"
-            >Nuevo examen</a
-          >
+        <li class="boton oculto" id="menu-3">
+          <a class="menu" href="#" onclick="show('3')">Nuevo examen</a>
+        </li>
+        <li class="boton oculto" id="menu-5">
+          <a class="menu" href="#" onclick="show('5')">Lista de exámenes</a>
         </li>
         <li class="boton" id="menu-4">
-          <a
-            class="menu"
-            href="#"
-            onclick="show('4')"
-            >Acerca de</a
-          >
+          <a class="menu" href="#" onclick="show('4')">Acerca de</a>
         </li>
+        
       </ul>
     </nav>
 
     <main>
       <section id="section-1">
         <h2>Acceso</h2>
-        <form
-          action="http://labtelema.ujaen.es:8083/login"
-          method="POST"
-          name="login"
-        >
+        <form action="#" name="acceso" onsubmit="login(event)">
           <ul>
             <li>
               <input
@@ -57,20 +63,17 @@
               />
               <label for="user"><b>Usuario:</b></label>
             </li>
-
             <li>
               <input
                 type="password"
                 name="password"
-                id="password"
+                id="passwordLogin"
                 maxlength="16"
                 required
               />
-              <label for="password"><b>Clave</b></label>
+              <label for="passwordLogin"><b>Clave</b></label>
             </li>
-
-            <li><button class="boton" type="submit">Enviar</button></button></li>
-          </li>
+            <li><input type="submit" class="boton" value="Enviar" /></li>
           </ul>
         </form>
       </section>
@@ -78,9 +81,9 @@
         <h2>Registro de Usuario</h2>
         <div>
           <form
-            action="http://labtelema.ujaen.es/form.php"
-            method="PUT"
+            action="#"
             name="register"
+            onsubmit="user(event)"
           >
             <ul>
               <li>
@@ -134,7 +137,8 @@
                 >
               </li>
               <li>
-                <button class="boton" type="submit">Enviar</button></button></li>
+                <input type="submit" class="boton" value="Enviar">
+              </li>
             </ul>
           </form>
         </div>
@@ -142,19 +146,10 @@
       <section id="section-3" class="oculto">
         <h2>Nuevo examen</h2>
         <div>
-          <form
-            action="#"
-            method="PUT"
-            name="register"
-          >
+          <form action="#" name="exam" onsubmit="crearExamen(event)">
             <ul>
               <li>
-                <input
-                  type="text"
-                  name="title"
-                  id="title"
-                  required
-                />
+                <input type="text" name="title" id="title" required />
                 <label for="title"><b>Título:</b></label>
               </li>
               <li>
@@ -162,17 +157,14 @@
                 <label for="date"><b>Fecha:</b></label>
               </li>
               <li>
-                
-                <select name="repository">
-                    <option value="1" label="Opcion 1"> </option>              
+                <select name="repository" id="repositorioSelector">
                 </select>
                 <label for="repository"><b>Repositorio:</b></label>
-                
               </li>
-              
-              
+
               <li>
-                <button class="boton" type="submit">Enviar</button></button></li>
+                <input type="submit" class="boton" value="Enviar">
+              </li>
             </ul>
           </form>
         </div>
@@ -180,28 +172,43 @@
       <section id="section-4" class="oculto">
         <h2>Acerca de la página</h2>
       </section>
+      
+      <section id="section-5" class="oculto">
+        <h2>Todos los exámenes</h2>
+        <div id="listExamen"></div>
+        <form action="#" name="listExam" onsubmit="eliminarExamen(event)">
+          <ul>
+            <li>
+              <select name="exams" id="examsSelector">
+              </select>
+            </li>
+            <li>
+              <input type="submit" class="boton" value="Eliminar Examen">
+            </li>
+          </ul>
+        </form>
+        
+      </section>
+
       <aside id="section-1a">
         <img class="logo" src="./uja.png" alt="Logotipo UJA" width="150" />
-        <p>
-          Debe introducir su usuario y contraseña.
-        </p>
+        <p>Debe introducir su usuario y contraseña.</p>
       </aside>
       <aside id="section-2a" class="oculto">
         <img class="logo" src="./uja.png" alt="Logotipo UJA" width="150" />
         <p>
-          Aquí hay varias indicaciones sobre la operación, restricciones y errores :D
+          Introduzca la información requerida para crear un nuevo usuario.<br><br>
+          Los campos marcados con asterisco son obligatorios.
         </p>
       </aside>
       <aside id="section-3a" class="oculto">
         <img class="logo" src="./uja.png" alt="Logotipo UJA" width="150" />
-        <p>
-          Nuevo examen
-        </p>
+        <p>Introduzca el título y fecha asociados al examen y escoga en su caso el repositorio asociado.</p>
       </aside>
     </main>
 
     <footer>
-      <p>
+      <p> 
         <b>Autores:</b>
         <i>Juan Luis Herreros Bódalo y Manuel Ballesteros Bosques </i><br />
         <b>Titulación:</b>

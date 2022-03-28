@@ -1,3 +1,16 @@
+/*
+
+PRÁCTICA 2: APLICACIÓN WEB CLIENTE BÁSICA
+
+SERVICIOS Y APLICACIONES TELEMÁTICAS 
+INGENIERÍA DE LAS TECNOLOGÍAS DE LA TELECOMUNICACIÓN
+
+CURSO 2021/22
+
+JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
+
+*/
+
 /*Encabezado*/
 header {
   background-color: rgba(0, 0, 0, 0.25);
@@ -37,6 +50,7 @@ nav li {
   border-style: ridge;
   padding: 1%;
   border-radius: 30px;
+  cursor: pointer;
 }
 a.menu {
   font-size: larger;
@@ -66,15 +80,15 @@ main li {
   direction: rtl;
   list-style: none;
 }
-section button {
+input[type="date"] {
+  width: 50%;
+}
+input[type="submit"] {
   width: 93%;
   margin-top: 1%;
   margin-left: 3%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: medium;
-}
-input[type="date"] {
-  width: 50%;
 }
 input {
   width: 50%;
@@ -122,6 +136,10 @@ main section {
 }
 
 #section-4{
+  float: none;
+  width: auto;
+}
+#section-5{
   float: none;
   width: auto;
 }
@@ -190,4 +208,19 @@ input:required ~ label::after {
 
 .activo{
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+#error{
+  border-style:ridge;
+  border-color: red;
+  font-size: large;
+  color: red;
+  text-align: center;
+  padding-block: 5%;
+}
+
+#contenedorLista{
+  padding-inline-start: 23%;
+  margin-left: auto;
+  margin-right: auto;
 }
