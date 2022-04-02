@@ -30,6 +30,8 @@ function show(n) {
     ocultoa.classList.remove("oculto");
   }
 
+  if (n == 5) loadExams();
+
   let activo = document.getElementById("menu-" + n);
   activo.classList.add("activo");
 }
@@ -37,10 +39,9 @@ function menuLogeado(user) {
   currentUser = user;
   loadRepository();
   loadExams();
-  
 
   let menus = document.querySelectorAll("[id^='menu']");
-  
+
   for (let m of menus) {
     m.classList.add("oculto");
   }
@@ -74,10 +75,10 @@ function login(event) {
           menuLogeado(user);
           break;
         case 401:
-          escribirError(1,"Error de autenticación");
+          escribirError(1, "Error de autenticación");
           break;
         case 500:
-          escribirError(1,"Error de autenticación");
+          escribirError(1, "Error de autenticación");
           break;
       }
     }
@@ -95,11 +96,11 @@ function user(event) {
   let surname = document.forms.register.surname.value;
   let email = document.forms.register.email.value;
   let json = {
-    user: user,
-    password: password,
-    name: name,
-    surname: surname,
-    email: email,
+    "user": user,
+    "password": password,
+    "name": name,
+    "surname": surname,
+    "email": email,
   };
   console.log(JSON.stringify(json));
   let conn = new XMLHttpRequest();
@@ -112,10 +113,10 @@ function user(event) {
           menuLogeado(user);
           break;
         case 400:
-          escribirError(2,"Ya existe un usuario igual en el sistema");
+          escribirError(2, "Ya existe un usuario igual en el sistema");
           break;
         case 500:
-          escribirError(2,"Error del servidor");
+          escribirError(2, "Error del servidor");
           break;
       }
     }
@@ -133,7 +134,6 @@ function loadRepository() {
         case 200:
           //Se recibe el JSON
           let repositorios = JSON.parse(conn.responseText);
-          console.log(repositorios);
           listarRepositorios(repositorios);
           break;
         case 403:
@@ -147,15 +147,13 @@ function loadRepository() {
 
 function listarRepositorios(repo) {
   let lista = document.getElementById("repositorioSelector");
-  
-  for (let item of repo){
-    console.log(item._id);
+
+  for (let item of repo) {
     let opcion = document.createElement("option");
     opcion.setAttribute("value", item._id);
-    opcion.innerHTML=item.name;
+    opcion.innerHTML = item.name;
     lista.appendChild(opcion);
   }
-
 }
 
 function crearExamen(event) {
@@ -165,12 +163,12 @@ function crearExamen(event) {
   let title = document.forms.exam.title.value;
   let date = document.forms.exam.date.value;
   let repository = document.forms.exam.repository.value;
-  
+
   let json = {
-    user: user,
-    title: title,
-    date: date,
-    repository: repository,
+    "user": user,
+    "title": title,
+    "date": date,
+    "repository": repository,
   };
   console.log(JSON.stringify(json));
   let conn = new XMLHttpRequest();
@@ -179,10 +177,10 @@ function crearExamen(event) {
     if (conn.readyState === 4) {
       switch (conn.status) {
         case 201:
-          escribirError(3,"Examen creado");
+          escribirError(3, "Examen creado");
           break;
         case 500:
-          escribirError(3,"Error del servidor");
+          escribirError(3, "Error del servidor");
           break;
       }
     }
@@ -191,15 +189,15 @@ function crearExamen(event) {
   conn.send(JSON.stringify(json));
 }
 
-function escribirError(n,c) {
-    let aside = window.document.getElementById("section-"+n+"a");
-    let parrafo = window.document.getElementById("error");
-    if (parrafo === null){
-      parrafo = document.createElement("p");
-      parrafo.setAttribute("id", "error");
-    }    
-    parrafo.innerHTML = c;
-    aside.appendChild(parrafo);
+function escribirError(n, c) {
+  let aside = window.document.getElementById("section-" + n + "a");
+  let parrafo = window.document.getElementById("error");
+  if (parrafo === null) {
+    parrafo = document.createElement("p");
+    parrafo.setAttribute("id", "error");
+  }
+  parrafo.innerHTML = c;
+  aside.appendChild(parrafo);
 }
 
 function loadExams() {
@@ -211,7 +209,6 @@ function loadExams() {
         case 200:
           //Se recibe el JSON
           let examenes = JSON.parse(conn.responseText);
-          console.log(examenes);
           listarExamenes(examenes);
           break;
         case 403:
@@ -225,29 +222,38 @@ function loadExams() {
 
 function listarExamenes(exam) {
   let lista = document.getElementById("listExamen");
-  
-  for (let item of exam){
+  lista.innerHTML = "";
+
+  for (let item of exam) {
     let p = document.createElement("p");
-    let b = document.createElement("b");
+    let b = document.createElement("button");
     p.setAttribute("id", item._id);
-    p.innerHTML=item.title + item.date;
-    b.setAttribute("value","Borrar");
+    p.innerHTML = item.title + " ";
+    b.setAttribute("id", item._id);
+    b.setAttribute("onclick", "eliminarExamen('" + item._id + "')");
+    b.innerHTML = "Borrar";
+    b.classList.add("boton");
     p.appendChild(b);
     lista.appendChild(p);
   }
-
 }
 
-function eliminarExamen(event){
-  event.preventDefault();
-  let id = document.forms.listExam.exams.value;
+function eliminarExamen(id) {
   let conn = new XMLHttpRequest();
-  conn.open("DELETE", "http://labtelema.ujaen.es:8083/exam/"+id);
+  conn.open("DELETE", "http://labtelema.ujaen.es:8083/exam/" + id);
   conn.onload = function () {
-    if (conn.readyState === 4) 
-      loadExams();
-      
+    if (conn.readyState === 4) {
+      switch (conn.status) {
+        case 200:
+          let p = document.getElementById(id);
+          p.remove();
+          break;
+        case 403:
+          console.log("Acceso prohibido");
+          break;
+      }
     }
-  
+  };
+
   conn.send(null);
 }

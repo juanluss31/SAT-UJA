@@ -19,19 +19,19 @@ JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
     <link rel="stylesheet" href="estilos.css" />
     <link
       rel="shortcut icon"
-      href="favicon.ico"
+      href="https://www.ujaen.es/themes/custom/ujaen_main/favicon.ico"
       type="image/vnd.microsoft.icon"
     />
     <script src="script.js"></script>
     <title>Práctica 1</title>
   </head>
   <body>
-    <header class="titulo" onclick="menuLogeado('usuario')"><p>Plataforma de autoevaluación SSAATT</p></header>
+    <header class="titulo"><p>Plataforma de autoevaluación SSAATT</p></header>
     <nav>
       <ul>
-        <a class="menu" href="#" onclick="show('1')"><li class="boton activo" id="menu-1">
-           Inicio
-        </li></a>
+        <a class="menu" href="#" onclick="show('1')"
+          ><li class="boton activo" id="menu-1">Inicio</li></a
+        >
         <li class="boton" id="menu-2">
           <a class="menu" href="#" onclick="show('2')">Registro</a>
         </li>
@@ -44,7 +44,6 @@ JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
         <li class="boton" id="menu-4">
           <a class="menu" href="#" onclick="show('4')">Acerca de</a>
         </li>
-        
       </ul>
     </nav>
 
@@ -80,11 +79,7 @@ JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
       <section id="section-2" class="oculto">
         <h2>Registro de Usuario</h2>
         <div>
-          <form
-            action="#"
-            name="register"
-            onsubmit="user(event)"
-          >
+          <form action="#" name="register" onsubmit="user(event)">
             <ul>
               <li>
                 <input
@@ -137,7 +132,7 @@ JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
                 >
               </li>
               <li>
-                <input type="submit" class="boton" value="Enviar">
+                <input type="submit" class="boton" value="Enviar" />
               </li>
             </ul>
           </form>
@@ -157,13 +152,12 @@ JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
                 <label for="date"><b>Fecha:</b></label>
               </li>
               <li>
-                <select name="repository" id="repositorioSelector">
-                </select>
+                <select name="repository" id="repositorioSelector"></select>
                 <label for="repository"><b>Repositorio:</b></label>
               </li>
 
               <li>
-                <input type="submit" class="boton" value="Enviar">
+                <input type="submit" class="boton" value="Enviar" />
               </li>
             </ul>
           </form>
@@ -172,22 +166,10 @@ JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
       <section id="section-4" class="oculto">
         <h2>Acerca de la página</h2>
       </section>
-      
+
       <section id="section-5" class="oculto">
         <h2>Todos los exámenes</h2>
         <div id="listExamen"></div>
-        <form action="#" name="listExam" onsubmit="eliminarExamen(event)">
-          <ul>
-            <li>
-              <select name="exams" id="examsSelector">
-              </select>
-            </li>
-            <li>
-              <input type="submit" class="boton" value="Eliminar Examen">
-            </li>
-          </ul>
-        </form>
-        
       </section>
 
       <aside id="section-1a">
@@ -197,18 +179,21 @@ JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
       <aside id="section-2a" class="oculto">
         <img class="logo" src="./uja.png" alt="Logotipo UJA" width="150" />
         <p>
-          Introduzca la información requerida para crear un nuevo usuario.<br><br>
+          Introduzca la información requerida para crear un nuevo usuario.<br /><br />
           Los campos marcados con asterisco son obligatorios.
         </p>
       </aside>
       <aside id="section-3a" class="oculto">
         <img class="logo" src="./uja.png" alt="Logotipo UJA" width="150" />
-        <p>Introduzca el título y fecha asociados al examen y escoga en su caso el repositorio asociado.</p>
+        <p>
+          Introduzca el título y fecha asociados al examen y escoga en su caso
+          el repositorio asociado.
+        </p>
       </aside>
     </main>
 
     <footer>
-      <p> 
+      <p>
         <b>Autores:</b>
         <i>Juan Luis Herreros Bódalo y Manuel Ballesteros Bosques </i><br />
         <b>Titulación:</b>

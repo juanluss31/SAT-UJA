@@ -58,17 +58,15 @@ a.menu {
   text-decoration: none;
   color: white;
 }
-.boton:hover{
+.boton:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 /*Contenedor principal*/
 main {
-  overflow:auto;
+  overflow: auto;
 }
 /*section-1*/
-
-
 
 /*section-2*/
 h2 {
@@ -121,7 +119,7 @@ label {
   width: 35%;
   padding-left: 5%;
 }
-main section {  
+main section {
   float: left;
   width: 60%;
   background-image: linear-gradient(
@@ -135,11 +133,11 @@ main section {
   margin-top: 1%;
 }
 
-#section-4{
+#section-4 {
   float: none;
   width: auto;
 }
-#section-5{
+#section-5 {
   float: none;
   width: auto;
 }
@@ -158,11 +156,11 @@ aside {
   padding: 1%;
   border-radius: 10px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: medium;  
+  font-size: medium;
   margin-top: 1%;
 }
-#section-2a{
-  height:200%;
+#section-2a {
+  height: 200%;
 }
 img.logo {
   width: 150px;
@@ -202,16 +200,16 @@ input:required ~ label::after {
   float: right;
 }
 
-.oculto{
+.oculto {
   display: none;
 }
 
-.activo{
+.activo {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-#error{
-  border-style:ridge;
+#error {
+  border-style: ridge;
   border-color: red;
   font-size: large;
   color: red;
@@ -219,8 +217,10 @@ input:required ~ label::after {
   padding-block: 5%;
 }
 
-#contenedorLista{
-  padding-inline-start: 23%;
+#listExamen {
   margin-left: auto;
   margin-right: auto;
+  width: 40%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
 }
