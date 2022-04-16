@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="tarea">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string" />
+                <xs:element name="fechainicio" type="xs:date" />
+                <xs:element name="duracionmaxima" type="xs:integer" />
+                <xs:element name="recursos" type="propiedadesrecurso" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="procesos" type="propiedadesproceso" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="propiedadesrecurso">
+        <xs:sequence>
+            <xs:element name="idequipo" type="xs:string" />
+            <xs:element name="memoria" type="xs:integer" />
+            <xs:element name="idprocesador" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="propiedadesproceso">
+        <xs:sequence>
+            <xs:element name="idproceso" type="xs:string" />
+            <xs:element name="descripcion" type="xs:string" />
+            <xs:element name="nombreproceso" type="xs:string" />
+            <xs:element name="permisos" type="xs:string" />
+            <xs:element name="cancelable" type="xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -109,7 +109,7 @@ function user(event) {
     if (conn.readyState === 4) {
       switch (conn.status) {
         case 201:
-          //Usuario logeado
+          //Usuario logueado
           menuLogeado(user);
           break;
         case 400:

@@ -1,0 +1,125 @@
+header {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: xx-large;
+  text-align: center;
+  border-radius: 5px;
+}
+
+body {
+  /*Fondo de la página*/
+  background-image: linear-gradient(to right, #2799b1, #d5e76c);
+  margin: auto;
+  padding: 1%;
+}
+
+ul {
+  /*Se lo aplicamos a todas las listas*/
+  list-style: none;
+  padding: 0;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+li {
+  margin-bottom: 5px;
+  display: flex;
+}
+.boton {
+  /* Para todos los botones*/
+  background-color: rgba(0, 0, 0, 0.1);
+  border-style: ridge;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+}
+
+.boton:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+main {
+  overflow: auto;
+}
+
+h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: x-large;
+  text-align: center;
+}
+
+input[type="number"] {
+  width: 10%;
+}
+
+input[type="submit"] {
+  margin-top: 1%;
+  margin-left: 3%;
+}
+input {
+  width: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+  margin: 0.5%;
+  background-color: rgba(240, 255, 255, 0.5);
+}
+
+:invalid input.boton {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+:invalid input.boton:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+main section {
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 213, 255, 0.25),
+    rgba(217, 255, 0, 0.25)
+  );
+  border-style: dotted;
+  padding: 0%;
+  border-radius: 10px;
+  margin-top: 1%;
+}
+
+/*Footer*/
+footer {
+  background-color: rgba(169, 228, 228, 0.5);
+  border: solid;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer p {
+  font-size: 0.9em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+  width: fit-content;
+  margin: auto;
+  padding-block: 1%;
+}
+
+/*Varios*/
+::selection {
+  color: #d5e76c;
+  background-color: #2799b1;
+}
+
+ul div {
+  margin: auto;
+  width: 40%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+}
+
+section div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+#botonenviar {
+  padding-block: 0.5%;
+}

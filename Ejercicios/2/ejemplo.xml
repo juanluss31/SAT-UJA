@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<tarea xsi:noNamespaceSchemaLocation="gestor.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <nombre>Nombre de la tarea</nombre>
+    <fechainicio>2022-03-31</fechainicio>
+    <duracionmaxima>30</duracionmaxima>
+    <recursos>
+        <idequipo>equipo1</idequipo>
+        <memoria>-4409</memoria>
+        <idprocesador>HAD5F26A</idprocesador>
+    </recursos>
+    <recursos>
+        <idequipo>equipo2</idequipo>
+        <memoria>2983</memoria>
+        <idprocesador>HAD2G34B</idprocesador>
+    </recursos>
+    <procesos>
+        <idproceso>proceso1</idproceso>
+        <descripcion>Descripción del proceso 1</descripcion>
+        <nombreproceso>Nombre del proceso 1</nombreproceso>
+        <permisos>Leer y escribir</permisos>
+        <cancelable>0</cancelable>
+    </procesos>
+    <procesos>
+        <idproceso>proceso2</idproceso>
+        <descripcion>Descripción del proceso 1</descripcion>
+        <nombreproceso>Nombre del proceso 2</nombreproceso>
+        <permisos>Sólo lectura</permisos>
+        <cancelable>1</cancelable>
+    </procesos>
+</tarea>
