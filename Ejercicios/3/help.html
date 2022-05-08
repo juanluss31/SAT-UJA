@@ -1,0 +1,168 @@
+<!--
+
+EJERCICIO 3 - ELABORACIÓN DE UN MANUAL DE USUARIO WEB ACCESIBLE
+
+SERVICIOS Y APLICACIONES TELEMÁTICAS 
+INGENIERÍA DE LAS TECNOLOGÍAS DE LA TELECOMUNICACIÓN
+
+CURSO 2021/22
+
+JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="help.css" />
+    <link
+      rel="shortcut icon"
+      href="https://www.ujaen.es/themes/custom/ujaen_main/favicon.ico"
+      type="image/vnd.microsoft.icon"
+    />
+    <title>Ayuda</title>
+  </head>
+  <body>
+    <header class="titulo"><b>Manual de usuario Prácticas 2 y 3</b></header>
+
+    <section>
+      <h2>Ayuda de la práctica 2</h2>
+
+      <article>
+        <h3>Índice</h3>
+        <ul>
+          <li><a href="#a1">Inicio</a></li>
+          <li><a href="#a2">Registro</a></li>
+          <li><a href="#a3">Nuevo Examen</a></li>
+        </ul>
+      </article>
+
+      <article id="a1">
+        <h3>Inicio</h3>
+        <p>
+          Esta sección nos muestra un formulario utilizado para introducir el
+          usuario y su respectiva contraseña. Además de un botón que permite la
+          autenticación.
+        </p>
+        <p>Los errores que se nos pueden presentar en esta sección son:</p>
+        <ul>
+          <li><b>401 - </b>Se trata de un error de autenticación</li>
+          <li><b>500 - </b>Error del servidor al acceder a la base de datos</li>
+        </ul>
+        <p>
+          En cualquiera de los dos casos aparece un mensaje con el error
+          cometido en el aside de la derecha.
+        </p>
+        <img
+          src="./login.jpg"
+          alt="Imagen que muestra la sección &quot;Inicio&quot; con un mensaje de error en el aside."
+        />
+      </article>
+      <article id="a2">
+        <h3>Registro</h3>
+        <p>
+          Esta sección permite a un nuevo usuario registrarse en la plataforma.
+        </p>
+        <p>
+          Se deberán introducir el apodo, correo electrónico, nombre y apellidos
+          del usuario, así como una clave para el acceso. Todos los campos son
+          obligatorios excepto los apellidos del usuario.
+        </p>
+        <p>Los errores que se nos pueden presentar en esta sección son:</p>
+        <ul>
+          <li>
+            <b>400 - </b>Ya existe un usuario con ese apodo en el sistema.
+          </li>
+          <li>
+            <b>500 - </b>Error del servidor al insertar al nuevo usuario a la
+            base de datos.
+          </li>
+        </ul>
+        <p>
+          En cualquiera de los dos casos aparece un mensaje con el error
+          cometido en el aside de la derecha.
+        </p>
+        <img
+          src="./registro.jpg"
+          alt="Se muestra la sección &quot;Registro&quot; con un mensaje de error en el aside."
+        />
+      </article>
+      <article id="a3">
+        <h3>Nuevo examen</h3>
+        <p>
+          Esta sección permite a un usuario crear un nuevo examen de tipo test.
+        </p>
+        <p>
+          Cada examen cuenta con un título, fecha y repositorio que son
+          obligatorios.
+        </p>
+        <p>Los errores que se nos pueden presentar en esta sección son:</p>
+        <ul>
+          <li>
+            <b>403 - </b> Error de acceso prohibido. No se pueden descargar los
+            respositorios.
+          </li>
+          <li>
+            <b>500 - </b>Error del servidor al insertar el examen a la base de
+            datos.
+          </li>
+        </ul>
+        <p>
+          En cualquiera de los dos casos aparece un mensaje con el error
+          cometido en el aside de la derecha. Igualmente, también aparece un
+          aviso cuando el examen ha sido creado con éxito.
+        </p>
+        <img
+          src="./nuevoexamen.jpg"
+          alt="Se muestra la sección &quot;Nuevo examen&quot; con un mensaje de aviso en el aside."
+        />
+      </article>
+    </section>
+
+    <section>
+      <h2>Ayuda de la práctica 3</h2>
+      <article>
+        <h3>Índice</h3>
+        <ul>
+          <li><a href="#a1">Inicio</a></li>
+          <li><a href="#a2">Registro</a></li>
+          <li><a href="#a3">Nuevo Examen</a></li>
+          <li><a href="#b1">Listado de exámenes</a></li>
+        </ul>
+      </article>
+
+      <article id="b1">
+        <h3>Listado de exámenes</h3>
+        <p>
+          Esta sección nos muestra una lista con los exámenes creados junto con un botón para eliminar cada uno individualmente.
+        </p>
+        <p>Los errores que se nos pueden presentar en esta sección son:</p>
+        <ul>
+          <li><b>404 - </b>El examen no se encuentra en la base de datos.</li>
+          <li><b>500 - </b>Error del servidor al borrar el examen de la base de datos</li>
+        </ul>
+        <p>
+          En cualquiera de los dos casos aparece un mensaje con el error
+          cometido en el aside de la derecha.
+        </p>
+        <img
+          src="./listaexamenes.jpg"
+          alt="Imagen que muestra la sección &quot;Listado de exámenes&quot; con un mensaje de error en el aside."
+        />
+      </article>
+    </section>
+
+    <footer>
+      <p>
+        <b>Autores:</b>
+        <i>Juan Luis Herreros Bódalo y Ainhoa Miró Mata </i><br />
+        <b>Titulación:</b>
+        <i>Ingeniería de las tecnologías de la telecomunicación</i>
+        <br />
+        <b>Curso:</b> <i>2º &#40;2021/2022&#41;</i> <b>Grupo:</b> <i>A</i>
+      </p>
+    </footer>
+  </body>
+</html>
