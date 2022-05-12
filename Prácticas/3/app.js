@@ -28,7 +28,7 @@ const DEFAULT_PORT = 8083; //Puerto del servidor por defecto
 const PORT = DEFAULT_PORT; //Para poder actualizarla por los argumentos del programa.
 
 //Mustache
-app.engine('html', mustacheExpress());
+app.engine("html", mustacheExpress());
 app.set("view engine", "html");
 app.set("views", "./views");
 
@@ -194,7 +194,9 @@ app.get("/exam", function (req, res) {
             if (err) {
               res.status(500).end();
             } else {
-              res.json(result);
+              res.writeHead("200", { "Content-Type": "application/json" });
+              res.end(JSON.stringify(result));
+              //res.json(result);
             }
             client.close();
           });
@@ -279,8 +281,43 @@ app.delete("/exam/:id", (request, response) => {
 });
 
 //Tarea 5: servicio GET /exam/user
-app.get("/exam/:user", (req, res) => {
-  res.status(200).end();
+app.get("/exam/:user", function (req, res) {
+  console.log("[SERVIDOR][/exam]");
+
+  MongoClient.connect(
+    urlMongoDB,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+    function (err, client) {
+      if (err) {
+        res.status(500).end();
+      } else {
+        var db = client.db("examenes");
+        db.collection("exams")
+          .find({ user: { $eq: req.params.user } })
+          .toArray(function (err, result) {
+            if (err) {
+              res.status(500).end();
+            } else {
+              res.render("exams", { exams: result }, function (err, html) {
+                if (err) {
+                  console.log(err);
+                  res.write("Error de plantilla");
+                  //res.write("Error: " + err + " " + html);
+                  res.end();
+                } else {
+                  res.write(html);
+                  res.end();
+                }
+              });
+            }
+            client.close();
+          });
+      }
+    }
+  );
 });
 
 /******* FIN PRÁCTICA 3 **********/
@@ -317,8 +354,8 @@ function checkExam(obj) {
 
 var user = {
   user: "Joe Doe",
-  title:"Mr."
-  };
+  title: "Mr.",
+};
 
 app.get("/mustache", function (req, res) {
   res.render("mustache", user, function (err, html) {

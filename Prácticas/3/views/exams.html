@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://www.ujaen.es/themes/custom/ujaen_main/favicon.ico"
+      type="image/vnd.microsoft.icon"
+    />
+    <title>Exámenes</title>
+    <link rel="stylesheet" href="/estilos.css" />
+    <script src="/script.js"></script>
+  </head>
+  <body>
+    <header><h1>Exámenes</h1></header>
+    <ul id="listExamen">
+      {{#exams}}
+      <li id="{{_id}}">
+        <h3>{{title}}</h3>
+        <b>Fecha:</b> {{date}} <br />
+        <b>Repositorio:</b> {{repository}}
+        <br>
+        <button id="botonGrande" class="boton" onclick="borrarExamen('{{_id}}')"> Borrar</button></i>
+      </li>
+      {{/exams}}
+    </ul>
+  </body>
+</html>

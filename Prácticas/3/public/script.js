@@ -11,7 +11,7 @@ JUAN LUIS HERREROS BÓDALO - MANUEL BALLESTEROS BOSQUES
 
 */
 
-var SERVERURL =  "";
+var SERVERURL = "";
 
 var currentUser = "";
 
@@ -27,12 +27,10 @@ function show(n) {
 
   let oculto = document.getElementById("section-" + n);
   oculto.classList.remove("oculto");
-  if (n != 4 && n != 5) {
+  if (n != 4) {
     let ocultoa = document.getElementById("section-" + n + "a");
     ocultoa.classList.remove("oculto");
   }
-
-  if (n == 5) loadExams();
 
   let activo = document.getElementById("menu-" + n);
   activo.classList.add("activo");
@@ -40,7 +38,6 @@ function show(n) {
 function menuLogeado(user) {
   currentUser = user;
   loadRepository();
-  loadExams();
 
   let menus = document.querySelectorAll("[id^='menu']");
 
@@ -52,9 +49,6 @@ function menuLogeado(user) {
 
   let acercade = document.getElementById("menu-4");
   acercade.classList.remove("oculto");
-
-  let listaExamenes = document.getElementById("menu-5");
-  listaExamenes.classList.remove("oculto");
 
   show(3);
 }
@@ -98,11 +92,11 @@ function user(event) {
   let surname = document.forms.register.surname.value;
   let email = document.forms.register.email.value;
   let json = {
-    "user": user,
-    "password": password,
-    "name": name,
-    "surname": surname,
-    "email": email,
+    user: user,
+    password: password,
+    name: name,
+    surname: surname,
+    email: email,
   };
   console.log(JSON.stringify(json));
   let conn = new XMLHttpRequest();
@@ -167,10 +161,10 @@ function crearExamen(event) {
   let repository = document.forms.exam.repository.value;
 
   let json = {
-    "user": user,
-    "title": title,
-    "date": date,
-    "repository": repository,
+    user: user,
+    title: title,
+    date: date,
+    repository: repository,
   };
   console.log(JSON.stringify(json));
   let conn = new XMLHttpRequest();
@@ -180,6 +174,7 @@ function crearExamen(event) {
       switch (conn.status) {
         case 201:
           escribirError(3, "Examen creado");
+          document.forms.exam.reset();
           break;
         case 500:
           escribirError(3, "Error del servidor");
@@ -202,60 +197,58 @@ function escribirError(n, c) {
   aside.appendChild(parrafo);
 }
 
-function loadExams() {
-  let conn = new XMLHttpRequest();
-  conn.open("GET", SERVERURL + "/exam");
-  conn.onload = function () {
-    if (conn.readyState === 4) {
-      switch (conn.status) {
-        case 200:
-          //Se recibe el JSON
-          let examenes = JSON.parse(conn.responseText);
-          listarExamenes(examenes);
-          break;
-        case 403:
-          console.log("Acceso prohibido");
-          break;
-      }
-    }
-  };
-  conn.send(null);
-}
-
-function listarExamenes(exam) {
-  let lista = document.getElementById("listExamen");
-  lista.innerHTML = "";
-
-  for (let item of exam) {
-    let p = document.createElement("p");
-    let b = document.createElement("button");
-    p.setAttribute("id", item._id);
-    p.innerHTML = item.title + " ";
-    b.setAttribute("id", item._id);
-    b.setAttribute("onclick", "eliminarExamen('" + item._id + "')");
-    b.innerHTML = "Borrar";
-    b.classList.add("boton");
-    p.appendChild(b);
-    lista.appendChild(p);
-  }
-}
-
-function eliminarExamen(id) {
-  let conn = new XMLHttpRequest();
-  conn.open("DELETE", SERVERURL + "/exam/" + id);
-  conn.onload = function () {
-    if (conn.readyState === 4) {
-      switch (conn.status) {
-        case 200:
-          let p = document.getElementById(id);
-          p.remove();
-          break;
-        case 403:
-          console.log("Acceso prohibido");
-          break;
-      }
-    }
+function borrarExamen(id) {
+  const init = {
+    method: "DELETE",
   };
 
-  conn.send(null);
+  fetch("/exam/" + id, init)
+    .then((response) => {
+      if (response.ok) {
+        let p = document.getElementById(id);
+        p.remove();
+        escribirError(3, "Examen borrado");
+      } else {
+        alert("Error" + response.status);
+      }
+    })
+    .catch((ex) => {
+      ul.innerHTML = "Error " + ex;
+    });
+}
+
+function cargarExamenes() {
+  const ul = document.getElementById("listExamen");
+  fetch("/exam")
+    .then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          if (data.length > 0) {
+            ul.innerHTML = "";
+            for (let item of data) {
+              let li = document.createElement("li");
+              let h3 = document.createElement("h3");
+              let b = document.createElement("button");
+              li.setAttribute("id", item._id);
+              h3.innerHTML = item.title;
+              b.setAttribute("id", "botonGrande");
+              b.onclick = () => borrarExamen(item._id);
+              //b.setAttribute("onclick", "eliminarExamen('" + item._id + "')");
+              b.innerHTML = "Borrar";
+              b.classList.add("boton");
+              li.appendChild(h3);
+              li.appendChild(b);              
+              ul.appendChild(li);
+            }
+          } else {
+            ul.innerHTML = "No hay registros";
+          }
+        });
+      } else {
+        ul.innerHTML = "Error " + response.status;
+      }
+    })
+    .catch((ex) => {
+      ul.innerHTML = "Error al conectar" + ex;
+    });
 }
