@@ -229,15 +229,22 @@ function cargarExamenes() {
               let li = document.createElement("li");
               let h3 = document.createElement("h3");
               let b = document.createElement("button");
+              let div = document.createElement("div");
               li.setAttribute("id", item._id);
               h3.innerHTML = item.title;
+              div.innerHTML =
+                "<b>Fecha:</b> " +
+                item.date +
+                "<br/> <b>Repositorio:</b> " +
+                item.repository;
               b.setAttribute("id", "botonGrande");
               b.onclick = () => borrarExamen(item._id);
               //b.setAttribute("onclick", "eliminarExamen('" + item._id + "')");
               b.innerHTML = "Borrar";
               b.classList.add("boton");
               li.appendChild(h3);
-              li.appendChild(b);              
+              li.appendChild(div);
+              li.appendChild(b);
               ul.appendChild(li);
             }
           } else {

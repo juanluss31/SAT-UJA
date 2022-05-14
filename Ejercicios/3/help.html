@@ -18,16 +18,60 @@ JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="help.css" />
     <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link
       rel="shortcut icon"
       href="https://www.ujaen.es/themes/custom/ujaen_main/favicon.ico"
       type="image/vnd.microsoft.icon"
     />
     <title>Ayuda</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        irArriba();
+      }); //Hacia arriba
+
+      function irArriba() {
+        $(".ir-arriba").click(function () {
+          $("body,html").animate({ scrollTop: "0px" }, 1000);
+        });
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 0) {
+            $(".ir-arriba").slideDown(600);
+          } else {
+            $(".ir-arriba").slideUp(600);
+          }
+        });
+        $(".ir-abajo").click(function () {
+          $("body,html").animate({ scrollTop: "1000px" }, 1000);
+        });
+      }
+    </script>
   </head>
   <body>
-    <header class="titulo"><b>Manual de usuario Prácticas 2 y 3</b></header>
+    <header class="titulo">
+      <h1><b>Manual de usuario Prácticas 2 y 3</b></h1>
+    </header>
+    <nav>
+      <ul>
+        <div class="boton"><a class="menu" href="#p2">Práctica 2</a></div>
+        <div class="boton"><a class="menu" href="#p3">Práctica 3</a></div>
+        <div class="boton">
+          <a class="menu" href="#accesibilidad">Medidas de accesibilidad</a>
+        </div>
+      </ul>
+    </nav>
 
-    <section>
+    <a class="ir-arriba" javascript:void(0) title="Volver arriba">
+      <span class="fa-stack">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+
+    <section id="p2">
       <h2>Ayuda de la práctica 2</h2>
 
       <article>
@@ -57,7 +101,8 @@ JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
         </p>
         <img
           src="./login.jpg"
-          alt="Imagen que muestra la sección &quot;Inicio&quot; con un mensaje de error en el aside."
+          width="600px"
+          alt='Imagen que muestra la sección "Inicio" con un mensaje de error en el aside.'
         />
       </article>
       <article id="a2">
@@ -86,7 +131,8 @@ JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
         </p>
         <img
           src="./registro.jpg"
-          alt="Se muestra la sección &quot;Registro&quot; con un mensaje de error en el aside."
+          width="600px"
+          alt='Se muestra la sección "Registro" con un mensaje de error en el aside.'
         />
       </article>
       <article id="a3">
@@ -116,12 +162,13 @@ JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
         </p>
         <img
           src="./nuevoexamen.jpg"
-          alt="Se muestra la sección &quot;Nuevo examen&quot; con un mensaje de aviso en el aside."
+          width="600px"
+          alt='Se muestra la sección "Nuevo examen" con un mensaje de aviso en el aside.'
         />
       </article>
     </section>
 
-    <section>
+    <section id="p3">
       <h2>Ayuda de la práctica 3</h2>
       <article>
         <h3>Índice</h3>
@@ -136,12 +183,16 @@ JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
       <article id="b1">
         <h3>Listado de exámenes</h3>
         <p>
-          Esta sección nos muestra una lista con los exámenes creados junto con un botón para eliminar cada uno individualmente.
+          Esta sección nos muestra una lista con los exámenes creados junto con
+          un botón para eliminar cada uno individualmente.
         </p>
         <p>Los errores que se nos pueden presentar en esta sección son:</p>
         <ul>
           <li><b>404 - </b>El examen no se encuentra en la base de datos.</li>
-          <li><b>500 - </b>Error del servidor al borrar el examen de la base de datos</li>
+          <li>
+            <b>500 - </b>Error del servidor al borrar el examen de la base de
+            datos
+          </li>
         </ul>
         <p>
           En cualquiera de los dos casos aparece un mensaje con el error
@@ -149,8 +200,77 @@ JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
         </p>
         <img
           src="./listaexamenes.jpg"
-          alt="Imagen que muestra la sección &quot;Listado de exámenes&quot; con un mensaje de error en el aside."
+          width="600px"
+          alt='Imagen que muestra la sección "Listado de exámenes" con un mensaje de error en el aside.'
         />
+      </article>
+    </section>
+    <section id="accesibilidad">
+      <h2>Medidas de accesibilidad</h2>
+      <article>
+        <h3>Títulos</h3>
+        <p>
+          La
+          <a
+            href="https://administracionelectronica.gob.es/pae_Home/dam/jcr:4307c128-ab86-4a01-a4e8-a94ff906f8b9/Guia_de_Accesibilidad_en_Sedes_Electronicas_v3_0.pdf"
+            title="Guía de accesibilidad en Sedes Electrónicas  (se abre en ventana nueva)"
+            >Guía de accesibilidad en Sedes Electrónicas</a
+          >
+          recomienda la utilización de los
+          <b>elementos de encabezado o título</b> (<i>H1-H6</i>).
+        </p>
+        <p>
+          Además, deben usarse en orden, es decir, no se debe pasar directamente
+          de un encabezado de nivel 1 a otro de nivel 3, sino que sebe haber un
+          nivel 2 intermedio.
+        </p>
+        <p>
+          En caso de HTML5, también recomienda el uso de los elementos
+          <b>&lt;section&gt;</b>, <b>&lt;article&gt;</b>, <b>&lt;aside&gt;</b> y
+          <b>&lt;nav&gt;</b> para la creación de secciones dentro de un
+          documento.
+        </p>
+      </article>
+      <article>
+        <h3>Enlaces</h3>
+        <p>
+          Los enlaces deben poseer un
+          <b>texto suficientemente descriptivo</b> para comprender su finalidad
+          o destino.
+        </p>
+        <p>
+          Igualmente, se recomienda evitar la
+          <b>apertura de enlaces en nuevas ventanas</b> del navegador. En el
+          caso de que el enlace se abra en una nueva ventana, se deberá informar
+          al usuario por medio del atributo <i>title</i> del enlace.
+        </p>
+        <p>
+          En el caso de esta web, los enlaces en los índices de contenido se
+          consideran suficientemente descriptivos, por los que no hay que
+          añadirles más información. En el caso del enlace a la guía de
+          accesibilidad seguida sí que se informa de la apertura en nueva
+          ventana.
+        </p>
+      </article>
+      <article>
+        <h3>Imágenes</h3>
+        <p>
+          Toda imagen debe proporcionar una <b>alternativa textual</b> que aporte la misma información que la imagen.
+        </p>
+        <p>El texto debe ser:</p>
+        <ul>
+          <li>Descriptivo de la información o función de la imagen.</li>
+          <li>
+            No demasiado largo.
+          </li>
+          <li>
+            Preferentemente sin abreviaturas.
+          </li>
+        </ul>
+        <p>
+          Además, las imagenes incluidas deben poseer un contraste suficiente entre los colores de fondo y primer plano.
+        </p>
+        
       </article>
     </section>
 
