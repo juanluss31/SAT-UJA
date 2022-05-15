@@ -141,7 +141,7 @@ article {
   padding: 1%;
   border-radius: 30px;
   cursor: pointer;
-  border-color: black
+  border-color: black;
 }
 
 .boton:hover {
@@ -157,17 +157,18 @@ a.menu {
 }
 a.menu:hover {
   color: white;
+  text-shadow: 0 1px 0 black; /*NUEVA - Esta propiedad añade sombra al texto*/
 }
 
 /*Flecha para hacer la pagina hacia arriba*/
-.ir-arriba{
-  display:none;
-  background-repeat:no-repeat;
-  font-size:20px;
-  color:black;
-  cursor:pointer;
-  position:fixed;
-  bottom:10px;
-  right:10px;
-  z-index:2;
+.ir-arriba {
+  display: none;
+  background-repeat: no-repeat;
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
 }
