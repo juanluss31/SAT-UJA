@@ -1,8 +1,0 @@
-const modelo={user="1",pass="1"}
-
-fun(let prop in recv){
-	modelo[prop]
-	
-	// undefined
-
-}

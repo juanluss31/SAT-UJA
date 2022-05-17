@@ -17,38 +17,13 @@ JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
     <meta charset="UTF8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="help.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
-    />
+
     <link
       rel="shortcut icon"
       href="https://www.ujaen.es/themes/custom/ujaen_main/favicon.ico"
       type="image/vnd.microsoft.icon"
     />
     <title>Ayuda</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        irArriba();
-      }); //Hacia arriba
-
-      function irArriba() {
-        $(".ir-arriba").click(function () {
-          $("body,html").animate({ scrollTop: "0px" }, 1000);
-        });
-        $(window).scroll(function () {
-          if ($(this).scrollTop() > 0) {
-            $(".ir-arriba").slideDown(600);
-          } else {
-            $(".ir-arriba").slideUp(600);
-          }
-        });
-        $(".ir-abajo").click(function () {
-          $("body,html").animate({ scrollTop: "1000px" }, 1000);
-        });
-      }
-    </script>
   </head>
   <body>
     <header class="titulo">
@@ -63,13 +38,6 @@ JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
         </div>
       </ul>
     </nav>
-
-    <a class="ir-arriba" javascript:void(0) title="Volver arriba">
-      <span class="fa-stack">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
 
     <section id="p2">
       <h2>Ayuda de la práctica 2</h2>
@@ -255,22 +223,19 @@ JUAN LUIS HERREROS BÓDALO - AINHOA MIRÓ MATA
       <article>
         <h3>Imágenes</h3>
         <p>
-          Toda imagen debe proporcionar una <b>alternativa textual</b> que aporte la misma información que la imagen.
+          Toda imagen debe proporcionar una <b>alternativa textual</b> que
+          aporte la misma información que la imagen.
         </p>
         <p>El texto debe ser:</p>
         <ul>
           <li>Descriptivo de la información o función de la imagen.</li>
-          <li>
-            No demasiado largo.
-          </li>
-          <li>
-            Preferentemente sin abreviaturas.
-          </li>
+          <li>No demasiado largo.</li>
+          <li>Preferentemente sin abreviaturas.</li>
         </ul>
         <p>
-          Además, las imagenes incluidas deben poseer un contraste suficiente entre los colores de fondo y primer plano.
+          Además, las imagenes incluidas deben poseer un contraste suficiente
+          entre los colores de fondo y primer plano.
         </p>
-        
       </article>
     </section>
 

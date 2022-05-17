@@ -1,0 +1,47 @@
+[
+    {
+        "_id":{
+            "$oid": "628270ccdfe92b7b15e24de7"
+        },
+        "name":"Juan",
+        "surname":"Nadie",
+        "age":21,
+        "email":"jn00001@red.ujaen.es"
+    },
+    {
+        "_id":{
+            "$oid": "628270ccdfe92b7b15e24de8"
+        },
+        "name":"Manoli",
+        "surname":"López",
+        "age":18,
+        "email":"mlopez@ujaen.es"
+    },
+    {
+        "_id":{
+            "$oid": "628270ccdfe92b7b15e24de9"
+        },
+        "name":"Antonia",
+        "surname":"Fernández",
+        "age":15,
+        "email":"antoniafer@gmail.com"
+    },
+    {
+        "_id":{
+            "$oid": "628270ccdfe92b7b15e24df0"
+        },
+        "name":"Alberto",
+        "surname":"Jiménez",
+        "age":30,
+        "email":"alberto@gmail.com"
+    },
+    {
+        "_id":{
+            "$oid": "628270ccdfe92b7b15e24df1"
+        },
+        "name":"María",
+        "surname":"Montes",
+        "age":17,
+        "email":"mmontes@red.ujaen.es"
+    }
+]
