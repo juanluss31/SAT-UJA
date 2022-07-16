@@ -20,10 +20,27 @@
         <h3>{{title}}</h3>
         <b>Fecha:</b> {{date}} <br />
         <b>Repositorio:</b> {{repository}}
-        <br>
-        <button id="botonGrande" class="boton" onclick="borrarExamen('{{_id}}')"> Borrar</button>
+        <br />
+        <button
+          id="botonGrande"
+          class="boton"
+          onclick="borrarExamen('{{_id}}')"
+        >
+          Borrar
+        </button>
       </li>
       {{/exams}}
+
+      {{#ofertas}}
+      <li id="{{_id}}">
+        <h3>{{tipoAlojamiento}} {{nombre}}</h3>
+        <b>Fecha Inicio:</b> {{fechaInicio}} <br />
+        <b>Fecha Fin:</b> {{fechaFin}} <br />
+        <b>Lugar:</b> {{lugar}} <br />
+        <b>Descripción:</b> {{descripcion}} <br />
+        <b>Precio:</b> {{precio}} euros <br />
+      </li>
+      {{/ofertas}}
     </ul>
   </body>
 </html>

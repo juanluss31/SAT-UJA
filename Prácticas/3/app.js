@@ -349,23 +349,3 @@ function checkExam(obj) {
 
   return true;
 }
-
-//Prueba:
-
-var user = {
-  user: "Joe Doe",
-  title: "Mr.",
-};
-
-app.get("/mustache", function (req, res) {
-  res.render("mustache", user, function (err, html) {
-    //En caso de error
-    if (err) {
-      res.write("Error: " + err + " " + html);
-    } else {
-      res.write(html);
-    }
-    res.end();
-  });
-});
-app.listen(3000);
